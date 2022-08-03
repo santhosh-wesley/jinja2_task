@@ -1,0 +1,27 @@
+{% macro heading_data(headings) %}
+<tr class="table_header">
+    {% for header in headings %}
+    <th class="table_cell">{{header}}</th>
+    {%endfor%}
+</tr>
+{% endmacro %}
+
+{% macro data_rows(table_data) %}
+
+{% for row in table_data %}
+<tr class="table_row">
+    {%for cell in row%}
+    <td class="table_cell">{{ cell }}</td>
+    {% endfor %}
+</tr>
+{%endfor%}
+{% endmacro %}
+
+{% macro data_table(headings,table_data) %}
+<table class="table">
+{{ heading_data(headings) }}
+{{ data_rows(table_data) }}
+</table>
+
+{% endmacro %}
+
